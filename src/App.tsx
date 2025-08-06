@@ -41,7 +41,13 @@ function Application() {
 
   const { messages, sendMessage, status } = useChat({
     transport: new DefaultChatTransport({
-      api: 'http://localhost:3000/api/chat',
+      // api: 'http://localhost:3000/api/chat/chained-model',
+      // api: 'http://localhost:3000/api/chat/non-streaming',
+      api: 'http://localhost:3000/api/chat/rag',
+
+      
+
+
       headers: { Authorization: 'Bearer token' },
     }),
     onError: (error) => {

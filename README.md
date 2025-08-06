@@ -1,47 +1,126 @@
-# React + TypeScript + Vite
+# React + TypeScript + Vite 聊天 UI 项目
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+这个项目提供了一个基于 React、TypeScript 和 Vite 的聊天 UI 界面，集成了 Ant Design X 组件库和 AI 功能。
 
-Currently, two official plugins are available:
+## 项目简介
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+该项目是一个现代化的聊天界面应用，具有以下特点：
+- 使用 React 函数式组件和 Hooks
+- TypeScript 提供类型安全
+- Vite 提供快速的开发体验和热模块替换
+- Ant Design X 组件库提供美观的 UI 组件
+- 集成 AI 聊天功能
 
-分支v1 默认初版模型调用
-分支v2 升级为最新版模型调用.
-## Expanding the ESLint configuration
+## 项目结构
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+```
+├── .gitignore
+├── README.md
+├── eslint.config.js
+├── index.html
+├── package.json
+├── public/
+│   └── vite.svg
+├── src/
+│   ├── App.css
+│   ├── App.tsx
+│   ├── assets/
+│   │   └── react.svg
+│   ├── components/
+│   │   ├── ChatList.tsx
+│   │   ├── ChatSender.tsx
+│   │   ├── DefaultWelcome.tsx
+│   │   └── SenderHeader.tsx
+│   ├── index.css
+│   ├── main.tsx
+│   └── vite-env.d.ts
+├── tsconfig.app.json
+├── tsconfig.json
+├── tsconfig.node.json
+├── vite.config.ts
+└── yarn.lock
+```
+
+## 安装依赖
+
+使用 Yarn 安装项目依赖：
+
+```bash
+yarn install
+```
+
+## 运行项目
+
+开发模式：
+```bash
+yarn dev
+```
+
+构建生产版本：
+```bash
+yarn build
+```
+
+预览生产构建：
+```bash
+yarn preview
+```
+
+## 代码检查
+
+```bash
+yarn lint
+```
+
+## 技术栈
+
+- React 19
+- TypeScript
+- Vite
+- Ant Design
+- Ant Design X
+- Antd Style
+- AI SDK
+
+## 分支说明
+
+- `v1`: 默认初始版本模型调用
+- `v2`: 升级为最新版模型调用
+
+## 扩展 ESLint 配置
+
+如果您正在开发生产应用，建议更新配置以启用类型感知的 lint 规则：
 
 ```js
+// eslint.config.js
 export default tseslint.config([
   globalIgnores(['dist']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
-      // Other configs...
+      // 其他配置...
 
-      // Remove tseslint.configs.recommended and replace with this
+      // 移除 tseslint.configs.recommended 并替换为以下内容
       ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
+      // 或者使用更严格的规则
       ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
+      // 可选，添加样式规则
       ...tseslint.configs.stylisticTypeChecked,
 
-      // Other configs...
+      // 其他配置...
     ],
     languageOptions: {
       parserOptions: {
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
-      // other options...
+      // 其他选项...
     },
   },
 ])
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+您还可以安装 [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) 和 [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) 以获取 React 特定的 lint 规则：
 
 ```js
 // eslint.config.js
@@ -53,10 +132,10 @@ export default tseslint.config([
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
-      // Other configs...
-      // Enable lint rules for React
+      // 其他配置...
+      // 启用 React lint 规则
       reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
+      // 启用 React DOM lint 规则
       reactDom.configs.recommended,
     ],
     languageOptions: {
@@ -64,7 +143,7 @@ export default tseslint.config([
         project: ['./tsconfig.node.json', './tsconfig.app.json'],
         tsconfigRootDir: import.meta.dirname,
       },
-      // other options...
+      // 其他选项...
     },
   },
 ])
